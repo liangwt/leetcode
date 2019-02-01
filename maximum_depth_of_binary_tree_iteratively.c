@@ -1,49 +1,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include "include/queue.h"
 
 int main()
 {
-}
-
-typedef struct _stack_node
-{
-    void *val;
-    struct _stack_node *next
-} stack_node;
-
-typedef struct _stack
-{
-    stack_node *top;
-    stack_node *bottom;
-} stack;
-
-void stact_init(stack *s)
-{
-    s->top = malloc(sizeof(stack_node));
-    if (s->top == NULL)
-    {
-        exit(-1);
-    }
-    s->bottom = s->top;
-    s->top->next = NULL;
-    return;
-}
-
-bool stack_push(stack *s, void *val)
-{
-    stack_node * node = malloc(sizeof(stack_node));
-    if(node==NULL){
-        return false;
-    }
-    node->val = val;
-    node->next = s->top;
-    s->top = node;
-
-    return true;
-}
-
-bool stack_pop(stack *s){
-
 }
 
 struct TreeNode
@@ -55,10 +15,31 @@ struct TreeNode
 
 int maxDepth(struct TreeNode *root)
 {
-    if (root == NULL)
+    if (!root)
     {
         return 0;
     }
 
-    return 1 + MAX(maxDepth(root->left), maxDepth(root->right));
+    int i = 0, j = 0;
+    queue q;
+    queue_node *q_node;
+    struct TreeNode *t_node;
+
+    queue_init(&q);
+    queue_push(&q, root);
+    while (!queue_is_empty(&q))
+    {
+        i++;
+        for (j = queue_length(&q); j > 0; j--)
+        {
+            q_node = queue_pop(&q);
+            t_node = (struct TreeNode *)q_node->val;
+            if (t_node->left)
+                queue_push(&q, t_node->left);
+            if (t_node->right)
+                queue_push(&q, t_node->right);
+        }
+    }
+
+    return i;
 }
