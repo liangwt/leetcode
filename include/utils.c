@@ -40,6 +40,11 @@ char *i_itoa(int v, char *str)
         *sp++ = *--tp;
 
     *sp++ = '\0';
-    
+
     return str;
+}
+
+int i_max(int a, int b)
+{
+    return a > b ? a : b;
 }

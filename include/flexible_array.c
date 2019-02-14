@@ -27,7 +27,7 @@ void flexible_array_create(int init_len)
 
     array->len = 0;
     array->els = els;
-    array->cap = INIT_LEN;
+    array->cap = init_len;
 }
 
 int _flexible_array_expansion_compute(int cap)
