@@ -13,6 +13,8 @@ typedef struct _stack {
 
 void stack_init(stack *s);
 
+int stack_length(stack *s);
+
 void *stack_top(stack *s);
 
 bool stack_is_empty(stack *q);

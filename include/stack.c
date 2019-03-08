@@ -18,6 +18,10 @@ void *stack_top(stack *s) {
     return s->top->val;
 }
 
+int stack_length(stack *s){
+    return s->num;
+}
+
 bool stack_push(stack *s, void *val) {
     stack_node *node = malloc(sizeof(stack_node));
     if (node == NULL) {
