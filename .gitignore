@@ -58,3 +58,4 @@ CMakeLists.txt
 cmake-build-debug/
 Makefile
 cmake_install.cmake
+*.cbp
