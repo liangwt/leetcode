@@ -23,7 +23,7 @@
  * 参考：https://www.cnblogs.com/AnnieKim/archive/2013/04/18/3028607.html
  * 
  * 判断xi是否是f(x)=0的解有两种方法：
- * 一是直接计算f(xi)的值判断是否为0，二是判断前后两个解xi
+ * 一是直接计算f(xi)的值判断是否为0，二是判断前后两个解xi和xi-1是否无限接近。
  */
 
 #include <assert.h>
