@@ -30,11 +30,13 @@
  *
  * 对于在map中存在的字符，取出值加入到表达式最后
  *
- * 于是对于egg 我们就可以得到类似122的表达式
- * 对于paper 表达式 12134
+ * 于是对于egg 我们就可以得到类似"122"的表达式
+ * 对于paper 表达式 "12134"
  *
  * 最后对比两个字符串的表达式是否相等即可
  *
+ * 注意：
+ *   表示式也是string类型的原因是，对于很长字符串，使用int型会导致溢出
  */
 
 #include <unordered_map>
@@ -46,37 +48,28 @@
 using namespace std;
 
 class Solution {
-public:
-    bool isIsomorphic(string s, string t) {
+private:
+    inline string calIdentify(const string &str) {
         unordered_map<char, int> s_map;
-        string s_idf;
+        string idf;
 
-        for (int i = 0; i < s.size(); ++i) {
-            auto idx = s_map.find(s[i]);
+        for (int i = 0; i < str.size(); ++i) {
+            auto idx = s_map.find(str[i]);
 
             if (idx == s_map.end()) {
-                s_map[s[i]] = i;
-                s_idf.push_back(char(i + 1));
+                s_map[str[i]] = i;
+                idf.push_back(char(i + 1));
             } else {
-                s_idf.push_back(char(idx->second + 1));
+                idf.push_back(char(idx->second + 1));
             };
         }
 
-        unordered_map<char, int> t_map;
-        string t_idf;
+        return idf;
+    }
 
-        for (int i = 0; i < t.size(); ++i) {
-            auto idx = t_map.find(t[i]);
-
-            if (idx == t_map.end()) {
-                t_map[t[i]] = i;
-                t_idf.push_back(char(i + 1));
-            } else {
-                t_idf.push_back(char(idx->second + 1));
-            };
-        }
-
-        return t_idf == s_idf;
+public:
+    bool isIsomorphic(string s, string t) {
+        return calIdentify(s) == calIdentify(t);
     }
 };
 
