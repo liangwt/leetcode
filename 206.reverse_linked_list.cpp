@@ -17,7 +17,7 @@
  * 当nxt指向了cur则实现了一个反转，此时cur、nxt、bak全部往后移动一位
  */
 
-#include "include/list.hpp"
+#include "include/header/list.hpp"
 
 class Solution {
 public:
