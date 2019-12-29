@@ -59,3 +59,4 @@ cmake-build-debug/
 Makefile
 cmake_install.cmake
 *.cbp
+docs/.vuepress/dist/

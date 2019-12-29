@@ -25,7 +25,7 @@
  * 对于反序列化程序来说，依旧使用队列把数组中的元素拼接到树中
  */
 
-#include "./include/tree.hpp"
+#include "include/header/tree.hpp"
 #include <string>
 #include <queue>
 #include <iostream>

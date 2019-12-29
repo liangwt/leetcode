@@ -51,7 +51,7 @@
  *
  */
 
-#include "include/tree.hpp"
+#include "include/header/tree.hpp"
 
 #include <assert.h>
 
