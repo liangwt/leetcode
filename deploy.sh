@@ -9,6 +9,8 @@ cd docs/.vuepress/dist
 echo 'leetcode.showthink.cn' > CNAME
 
 git init
+git config --local user.name liangwt 
+git config --local user.email liang.w.t@foxmail.com
 git add -A
 git commit -m 'deploy'
 
