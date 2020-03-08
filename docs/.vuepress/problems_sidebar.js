@@ -17,6 +17,7 @@ module.exports = [
             '3.longest_substring_without_repeating_characters',
             '5.longest_palindromic_substring',
             '300.longest_increasing_subsequence',
+            '/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts'
         ]
     },
     {
