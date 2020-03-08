@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5337. 每个元音包含偶数次的最长子字符串 | leetcode 精选</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.c35b8298.css" as="style"><link rel="preload" href="/assets/js/app.b90e5c3b.js" as="script"><link rel="preload" href="/assets/js/2.fbf82f5d.js" as="script"><link rel="preload" href="/assets/js/9.f217ae35.js" as="script"><link rel="prefetch" href="/assets/js/10.db6cc927.js"><link rel="prefetch" href="/assets/js/11.d6476049.js"><link rel="prefetch" href="/assets/js/12.72fdd3d1.js"><link rel="prefetch" href="/assets/js/13.19ed1e9e.js"><link rel="prefetch" href="/assets/js/14.14de8286.js"><link rel="prefetch" href="/assets/js/15.6a5a1b52.js"><link rel="prefetch" href="/assets/js/16.8b331bf5.js"><link rel="prefetch" href="/assets/js/17.b921ac5f.js"><link rel="prefetch" href="/assets/js/18.181e4a93.js"><link rel="prefetch" href="/assets/js/19.b0c50d6b.js"><link rel="prefetch" href="/assets/js/20.dd967b34.js"><link rel="prefetch" href="/assets/js/21.8db32eba.js"><link rel="prefetch" href="/assets/js/22.18f2031a.js"><link rel="prefetch" href="/assets/js/23.00344e73.js"><link rel="prefetch" href="/assets/js/24.71e44124.js"><link rel="prefetch" href="/assets/js/25.3d997b74.js"><link rel="prefetch" href="/assets/js/26.21aa209e.js"><link rel="prefetch" href="/assets/js/27.f319465f.js"><link rel="prefetch" href="/assets/js/28.76bf506d.js"><link rel="prefetch" href="/assets/js/29.95988520.js"><link rel="prefetch" href="/assets/js/3.03715bf7.js"><link rel="prefetch" href="/assets/js/4.f1d818cf.js"><link rel="prefetch" href="/assets/js/5.c22c22f4.js"><link rel="prefetch" href="/assets/js/6.2dfdaecd.js"><link rel="prefetch" href="/assets/js/7.4468e73c.js"><link rel="prefetch" href="/assets/js/8.bfffeeb5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c35b8298.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">leetcode 精选</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第 20 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5323.sort_integers_by_the_number_of_1_bits.html" class="sidebar-link">5323. 根据数字二进制下 1 的数目排序</a></li><li><a href="/biweekly_contest/1357.apply_discount_every_n_orders.html" class="sidebar-link">1357. 每隔 n 个顾客打折</a></li><li><a href="/biweekly_contest/5325.number_of_substrings_containing_all_three_characters.html" class="sidebar-link">5325. 包含所有三种字符的子字符串数目</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第 21 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts.html" class="active sidebar-link">5337. 每个元音包含偶数次的最长子字符串</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_5337-每个元音包含偶数次的最长子字符串"><a href="#_5337-每个元音包含偶数次的最长子字符串" class="header-anchor">#</a> 5337. 每个元音包含偶数次的最长子字符串</h2> <p>给你一个字符串 s ，请你返回满足以下条件的最长子字符串的长度：每个元音字母，即 'a'，'e'，'i'，'o'，'u' ，在子字符串中都恰好出现了偶数次。</p> <div class="custom-block tip"><p class="custom-block-title">示例 1：</p> <p>输入：s = &quot;eleetminicoworoep&quot;
+输出：13
+解释：最长子字符串是 &quot;leetminicowor&quot; ，它包含 e，i，o 各 2 个，以及 0 个 a，u 。</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 2：</p> <p>输入：s = &quot;leetcodeisgreat&quot;
+输出：5
+解释：最长子字符串是 &quot;leetc&quot; ，其中包含 2 个 e 。</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 3：</p> <p>输入：s = &quot;bcbcbc&quot;
+输出：6
+解释：这个示例中，字符串 &quot;bcbcbc&quot; 本身就是最长的，因为所有的元音 a，e，i，o，u 都出现了 0 次。</p></div> <div class="custom-block warning"><p class="custom-block-title">提示：</p> <p>1 &lt;= s.length &lt;= 5 x 10^5
+s 只包含小写英文字母。</p></div> <blockquote><p><a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts" target="_blank" rel="noopener noreferrer">每个元音包含偶数次的最长子字符串<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <h3 id="背景介绍"><a href="#背景介绍" class="header-anchor">#</a> 背景介绍</h3> <p>最近的周赛中出现过状态压缩：</p> <p><a href="https://leetcode-cn.com/problems/maximum-students-taking-exam/" target="_blank" rel="noopener noreferrer">1349.参加考试的最大学生数<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>LeetCode上经典的状态压缩题也不少：</p> <p><a href="https://leetcode-cn.com/problems/stickers-to-spell-word/" target="_blank" rel="noopener noreferrer">691.贴纸拼词<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://leetcode-cn.com/problems/smallest-sufficient-team/" target="_blank" rel="noopener noreferrer">1125.最小的必要团队<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>什么是状态压缩？其实非常简单，就是把一个二元状态组用二进制数来表示。开灯或关灯，选取或没选取，奇数或偶数，这些都属于二元状态。而如果有NN盏灯、NN个选项或者NN个数，这就变成了一个二元状态组。</p> <p>什么时候应该状态压缩？状态压缩的题目，一般都会有非常明显的标志：如果你看到有一个参数的数值小于20，同时这道题目中有涉及到是否选取、是否使用、是否出现这样的二元状态，那么这道题目很可能就是一道状态压缩的题目。</p> <h3 id="题目分析"><a href="#题目分析" class="header-anchor">#</a> 题目分析</h3> <p>为什么会想到用状态压缩来做这道题？这道题统计的是元音字母出现偶数次的子串。元音字母一共5个，符合参数小的特点；偶数次意味着只需要考虑奇偶，显然这是一个二元状态。</p> <p>因此，我们用5个元音字母出现次数的奇偶构建了一个二元状态组，然后就可以用一个二进制数将其表示出来。</p> <p><strong>到这一步，状态压缩已经完成，那么要如何解决这道题呢？</strong></p> <h4 id="分析："><a href="#分析：" class="header-anchor">#</a> 分析：</h4> <p>观察可以成为结果的子串的特点。假设子串<code>(l,r]</code>是一个符合条件的子串（也即所有元音字母都出现偶数次），那么这个子串对应的状态应该为0。但是由于数据范围，我们不可能逐个检验所有的子串。不妨来看看<code>[0,l]</code>和<code>[0,r]</code>有怎样的性质。由于<code>(l,r]</code>中每个元音字母出现偶数次，所以<code>[0,l]</code>和<code>[0,r]</code>中所有元音字母出现次数的奇偶一定相同，也就是说，它们会对应同样的状态。</p> <p>本题的解法到此也就呼之欲出了。假设最长子串是<code>(l,r]</code>，同时<code>[0,r]</code>的状态为state，那么<code>[0,l]</code>一定是从0开始且状态为state的最短子串。因为如果还有一个具有相同状态的更短的子串<code>[0,l']</code>，<code>(l′,r]</code>就会比<code>(l,r]</code>长，并且它也同样满足所有元音字母出现偶数次，这样就与假设矛盾了。</p> <h4 id="解答："><a href="#解答：" class="header-anchor">#</a> 解答：</h4> <p>所以，我们只需要从最左边开始，在每一个位置上更新当前状态，如果某一状态第一次出现，就记录下此时的长度。如果某一状态出现第二次或更多次，用当前长度减掉第一次出现时的长度，就可以得到一个满足要求的子串，我们记录长度的最大值即可。</p> <p>因为我们只进行了一次遍历，时间复杂度为O(n)；需要保存的是每个状态首次出现的长度，因为状态总数是常数，空间复杂度为O(1)。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;assert.h&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">findTheLongestSubstring</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> states <span class="token operator">=</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> INT_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        states<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 状态零是空字符串</span>
+
+        <span class="token keyword">int</span> state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token operator">:</span>
+                state <span class="token operator">^=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'e'</span><span class="token operator">:</span>
+                state <span class="token operator">^=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'i'</span><span class="token operator">:</span>
+                state <span class="token operator">^=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'o'</span><span class="token operator">:</span>
+                state <span class="token operator">^=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'u'</span><span class="token operator">:</span>
+                state <span class="token operator">^=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span>states<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token operator">==</span> INT_MAX<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                states<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                result <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span>i <span class="token operator">-</span> states<span class="token punctuation">[</span>state<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Solution s<span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">findTheLongestSubstring</span><span class="token punctuation">(</span><span class="token string">&quot;eleetminicoworoep&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">findTheLongestSubstring</span><span class="token punctuation">(</span><span class="token string">&quot;leetcodeisgreat&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">findTheLongestSubstring</span><span class="token punctuation">(</span><span class="token string">&quot;bcbcbc&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/8/2020, 4:05:22 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/biweekly_contest/5325.number_of_substrings_containing_all_three_characters.html" class="prev">
+        5325. 包含所有三种字符的子字符串数目
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b90e5c3b.js" defer></script><script src="/assets/js/2.fbf82f5d.js" defer></script><script src="/assets/js/9.f217ae35.js" defer></script>
+  </body>
+</html>

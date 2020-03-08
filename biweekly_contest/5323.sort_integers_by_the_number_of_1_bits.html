@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5323. 根据数字二进制下 1 的数目排序 | leetcode 精选</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.c35b8298.css" as="style"><link rel="preload" href="/assets/js/app.b90e5c3b.js" as="script"><link rel="preload" href="/assets/js/2.fbf82f5d.js" as="script"><link rel="preload" href="/assets/js/7.4468e73c.js" as="script"><link rel="prefetch" href="/assets/js/10.db6cc927.js"><link rel="prefetch" href="/assets/js/11.d6476049.js"><link rel="prefetch" href="/assets/js/12.72fdd3d1.js"><link rel="prefetch" href="/assets/js/13.19ed1e9e.js"><link rel="prefetch" href="/assets/js/14.14de8286.js"><link rel="prefetch" href="/assets/js/15.6a5a1b52.js"><link rel="prefetch" href="/assets/js/16.8b331bf5.js"><link rel="prefetch" href="/assets/js/17.b921ac5f.js"><link rel="prefetch" href="/assets/js/18.181e4a93.js"><link rel="prefetch" href="/assets/js/19.b0c50d6b.js"><link rel="prefetch" href="/assets/js/20.dd967b34.js"><link rel="prefetch" href="/assets/js/21.8db32eba.js"><link rel="prefetch" href="/assets/js/22.18f2031a.js"><link rel="prefetch" href="/assets/js/23.00344e73.js"><link rel="prefetch" href="/assets/js/24.71e44124.js"><link rel="prefetch" href="/assets/js/25.3d997b74.js"><link rel="prefetch" href="/assets/js/26.21aa209e.js"><link rel="prefetch" href="/assets/js/27.f319465f.js"><link rel="prefetch" href="/assets/js/28.76bf506d.js"><link rel="prefetch" href="/assets/js/29.95988520.js"><link rel="prefetch" href="/assets/js/3.03715bf7.js"><link rel="prefetch" href="/assets/js/4.f1d818cf.js"><link rel="prefetch" href="/assets/js/5.c22c22f4.js"><link rel="prefetch" href="/assets/js/6.2dfdaecd.js"><link rel="prefetch" href="/assets/js/8.bfffeeb5.js"><link rel="prefetch" href="/assets/js/9.f217ae35.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c35b8298.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">leetcode 精选</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第 20 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5323.sort_integers_by_the_number_of_1_bits.html" class="active sidebar-link">5323. 根据数字二进制下 1 的数目排序</a></li><li><a href="/biweekly_contest/1357.apply_discount_every_n_orders.html" class="sidebar-link">1357. 每隔 n 个顾客打折</a></li><li><a href="/biweekly_contest/5325.number_of_substrings_containing_all_three_characters.html" class="sidebar-link">5325. 包含所有三种字符的子字符串数目</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第 21 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts.html" class="sidebar-link">5337. 每个元音包含偶数次的最长子字符串</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_5323-根据数字二进制下-1-的数目排序"><a href="#_5323-根据数字二进制下-1-的数目排序" class="header-anchor">#</a> 5323. 根据数字二进制下 1 的数目排序</h2> <p>给你一个整数数组 arr 。请你将数组中的元素按照其二进制表示中数字 1 的数目升序排序。</p> <p>如果存在多个数字二进制中 1 的数目相同，则必须将它们按照数值大小升序排列。</p> <p>请你返回排序后的数组。</p> <div class="custom-block tip"><p class="custom-block-title">示例 1：</p> <p>输入：arr = [0,1,2,3,4,5,6,7,8]
+输出：[0,1,2,4,8,3,5,6,7]
+解释：[0] 是唯一一个有 0 个 1 的数。
+[1,2,4,8] 都有 1 个 1 。
+[3,5,6] 有 2 个 1 。
+[7] 有 3 个 1 。
+按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 2：</p> <p>输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]
+输出：[1,2,4,8,16,32,64,128,256,512,1024]
+解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 3：</p> <p>输入：arr = [10000,10000]
+输出：[10000,10000]</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 4：</p> <p>输入：arr = [2,3,5,7,11,13,17,19]
+输出：[2,3,5,17,7,11,13,19]</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 5：</p> <p>输入：arr = [10,100,1000,10000]
+输出：[10,100,10000,1000]</p></div> <div class="custom-block warning"><p class="custom-block-title">提示：</p> <p>1 &lt;= arr.length &lt;= 500
+0 &lt;= arr[i] &lt;= 10^4</p></div> <h3 id="思路"><a href="#思路" class="header-anchor">#</a> 思路</h3> <p>只要计算出每个数字的二进制1的个数，然后按照1的个数排序即可</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;assert.h&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">sortByBits</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>arr<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> temp<span class="token punctuation">;</span>
+        <span class="token comment">// 计算数组中每个值的二进制表示中数字 1 的数目</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> arr<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> t <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                n <span class="token operator">+=</span> i <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                i <span class="token operator">=</span> i <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cout <span class="token operator">&lt;&lt;</span> n <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+            temp<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">make_pair</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 按照二进制表示中数字 1 的数目排序</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> temp<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 获取结果</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> temp<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            result<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Solution s<span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> arr1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> r2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">sortByBits</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span> <span class="token operator">==</span> r2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/23/2020, 3:29:54 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/biweekly_contest/1357.apply_discount_every_n_orders.html">
+        1357. 每隔 n 个顾客打折
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b90e5c3b.js" defer></script><script src="/assets/js/2.fbf82f5d.js" defer></script><script src="/assets/js/7.4468e73c.js" defer></script>
+  </body>
+</html>

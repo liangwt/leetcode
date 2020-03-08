@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>206. Reverse Linked List | leetcode 精选</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.c35b8298.css" as="style"><link rel="preload" href="/assets/js/app.b90e5c3b.js" as="script"><link rel="preload" href="/assets/js/2.fbf82f5d.js" as="script"><link rel="preload" href="/assets/js/16.8b331bf5.js" as="script"><link rel="prefetch" href="/assets/js/10.db6cc927.js"><link rel="prefetch" href="/assets/js/11.d6476049.js"><link rel="prefetch" href="/assets/js/12.72fdd3d1.js"><link rel="prefetch" href="/assets/js/13.19ed1e9e.js"><link rel="prefetch" href="/assets/js/14.14de8286.js"><link rel="prefetch" href="/assets/js/15.6a5a1b52.js"><link rel="prefetch" href="/assets/js/17.b921ac5f.js"><link rel="prefetch" href="/assets/js/18.181e4a93.js"><link rel="prefetch" href="/assets/js/19.b0c50d6b.js"><link rel="prefetch" href="/assets/js/20.dd967b34.js"><link rel="prefetch" href="/assets/js/21.8db32eba.js"><link rel="prefetch" href="/assets/js/22.18f2031a.js"><link rel="prefetch" href="/assets/js/23.00344e73.js"><link rel="prefetch" href="/assets/js/24.71e44124.js"><link rel="prefetch" href="/assets/js/25.3d997b74.js"><link rel="prefetch" href="/assets/js/26.21aa209e.js"><link rel="prefetch" href="/assets/js/27.f319465f.js"><link rel="prefetch" href="/assets/js/28.76bf506d.js"><link rel="prefetch" href="/assets/js/29.95988520.js"><link rel="prefetch" href="/assets/js/3.03715bf7.js"><link rel="prefetch" href="/assets/js/4.f1d818cf.js"><link rel="prefetch" href="/assets/js/5.c22c22f4.js"><link rel="prefetch" href="/assets/js/6.2dfdaecd.js"><link rel="prefetch" href="/assets/js/7.4468e73c.js"><link rel="prefetch" href="/assets/js/8.bfffeeb5.js"><link rel="prefetch" href="/assets/js/9.f217ae35.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c35b8298.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">leetcode 精选</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/problems/" class="nav-link router-link-active">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/problems/" class="nav-link router-link-active">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>动态规划</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problems/53.maximum_subarray.html" class="sidebar-link">53. Maximum Subarray</a></li><li><a href="/problems/198.house_robber.html" class="sidebar-link">198. House Robber</a></li><li><a href="/problems/300.longest_increasing_subsequence.html" class="sidebar-link">300. Longest Increasing Subsequence</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>字符串处理与查找</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problems/3.longest_substring_without_repeating_characters.html" class="sidebar-link">3. Longest Substring Without Repeating Characters</a></li><li><a href="/problems/5.longest_palindromic_substring.html" class="sidebar-link">5. Longest Palindromic Substring</a></li><li><a href="/problems/300.longest_increasing_subsequence.html" class="sidebar-link">300. Longest Increasing Subsequence</a></li><li><a href="/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts.html" class="sidebar-link">5337. 每个元音包含偶数次的最长子字符串</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数论</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problems/7.reverse_integer.html" class="sidebar-link">7. Reverse Integer</a></li><li><a href="/problems/29.divide_two_integers.html" class="sidebar-link">29. Divide Two Integers</a></li><li><a href="/problems/50.pow(x,n).html" class="sidebar-link">50. Pow(x, n)</a></li><li><a href="/problems/69.sqrt(x).html" class="sidebar-link">69. Sqrt(x)</a></li><li><a href="/problems/371.sum_of_two_integers.html" class="sidebar-link">371. Sum of Two Integers</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>图算法</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problems/200.number_of_islands.html" class="sidebar-link">200. Number of Islands</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>线性结构-链表</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problems/200.number_of_islands.html" class="sidebar-link">200. Number of Islands</a></li><li><a href="/problems/206.reverse_linked_list.html" class="active sidebar-link">206. Reverse Linked List</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>树形结构</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_206-reverse-linked-list"><a href="#_206-reverse-linked-list" class="header-anchor">#</a> 206. Reverse Linked List</h1> <blockquote><p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreferrer">https://leetcode.com/problems/reverse-linked-list/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <blockquote><p>Reverse a singly linked list.</p> <p>Example:</p> <p>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+Follow up:</p> <p>A linked list can be reversed either iteratively or recursively. Could you implement both?</p></blockquote> <h2 id="解题思路"><a href="#解题思路" class="header-anchor">#</a> 解题思路</h2> <p>三个指针，一个指向当前元素cur，一个指向下一个元素nxt，
+因为会把nxt指向到cur，所以需要一个指针记录断开的链表头节点bak</p> <p>当nxt指向了cur则实现了一个反转，此时cur、nxt、bak全部往后移动一位</p> <p><strong>例如</strong></p> <p>对于<code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</code>，初始三个指针指向为</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL        1   -&gt;   2   -&gt;   3   -&gt;   4   -&gt;   5   -&gt;   NULL
+    ^          ^          
+ cur|bak      nxt 
+
+</code></pre></div><p>当我们要反转第一个节点<code>1</code>时，一旦<code>1</code>和<code>2</code>之间失去了连接，我们就无法继续往下移动指针了，所以使用bak记录下一个要反转的节点</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL        1   -&gt;   2   -&gt;   3   -&gt;   4   -&gt;   5   -&gt;   NULL
+    ^          ^        ^ 
+   cur        nxt      bak
+
+</code></pre></div><p>之后执行<code>1</code>反转操作，把nxt的指向到cur，执行完成之后如下</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL   &lt;-   1        2   -&gt;   3   -&gt;   4   -&gt;   5   -&gt;   NULL
+    ^          ^        ^ 
+   cur        nxt      bak
+
+</code></pre></div><p>在完成<code>1</code>的反转之后，把cur移动到下一个位置，也就是nxt的位置。nxt也移动到下一个位置，也就是我们之前记录到bak的位置</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL   &lt;-   1        2   -&gt;   3   -&gt;   4   -&gt;   5   -&gt;   NULL
+               ^        ^ 
+              cur    bak|nxt
+</code></pre></div><p>于是和最开始一样，我们现在准备反转<code>2</code>节点，一旦<code>2</code>节点完成反转就与<code>3</code>失去了连接，所以使用bak记录<code>3</code>这个节点</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL   &lt;-   1        2   -&gt;   3   -&gt;   4   -&gt;   5   -&gt;   NULL
+               ^        ^        ^
+              cur      nxt      bak
+</code></pre></div><p>现在执行<code>2</code>的反转，把nxt的指向到cur，执行完成之后如下</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL   &lt;-   1   &lt;-   2        3   -&gt;   4   -&gt;   5   -&gt;   NULL
+               ^        ^        ^
+              cur      nxt      bak
+</code></pre></div><p>移动cur和nxt指针位置</p> <div class="language- extra-class"><pre class="language-text"><code>   NULL   &lt;-   1   &lt;-   2        3   -&gt;   4   -&gt;   5   -&gt;   NULL
+                        ^        ^
+                       cur    nxt|bak
+</code></pre></div><h2 id="代码"><a href="#代码" class="header-anchor">#</a> 代码</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;include/header/list.hpp&quot;</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ListNode <span class="token operator">*</span>cur <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span>nxt <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span>bak<span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>nxt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            bak <span class="token operator">=</span> nxt<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            nxt<span class="token operator">-&gt;</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+            cur <span class="token operator">=</span> nxt<span class="token punctuation">;</span>
+            nxt <span class="token operator">=</span> bak<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Solution s<span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> a1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> l1 <span class="token operator">=</span> ListNode<span class="token operator">::</span><span class="token function">deserialize</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>ListNode<span class="token operator">::</span><span class="token function">serialize</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">reverseList</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> a2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> l2 <span class="token operator">=</span> ListNode<span class="token operator">::</span><span class="token function">deserialize</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>ListNode<span class="token operator">::</span><span class="token function">serialize</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">reverseList</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="github地址"><a href="#github地址" class="header-anchor">#</a> GitHub地址</h2> <blockquote><p><a href="https://github.com/liangwt/leetcode/blob/master/206.reverse_linked_list.cpp" target="_blank" rel="noopener noreferrer">https://github.com/liangwt/leetcode/blob/master/206.reverse_linked_list.cpp<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/29/2019, 4:54:44 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/problems/200.number_of_islands.html" class="prev">
+        200. Number of Islands
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b90e5c3b.js" defer></script><script src="/assets/js/2.fbf82f5d.js" defer></script><script src="/assets/js/16.8b331bf5.js" defer></script>
+  </body>
+</html>

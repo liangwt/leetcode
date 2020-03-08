@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5325. 包含所有三种字符的子字符串数目 | leetcode 精选</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.c35b8298.css" as="style"><link rel="preload" href="/assets/js/app.b90e5c3b.js" as="script"><link rel="preload" href="/assets/js/2.fbf82f5d.js" as="script"><link rel="preload" href="/assets/js/8.bfffeeb5.js" as="script"><link rel="prefetch" href="/assets/js/10.db6cc927.js"><link rel="prefetch" href="/assets/js/11.d6476049.js"><link rel="prefetch" href="/assets/js/12.72fdd3d1.js"><link rel="prefetch" href="/assets/js/13.19ed1e9e.js"><link rel="prefetch" href="/assets/js/14.14de8286.js"><link rel="prefetch" href="/assets/js/15.6a5a1b52.js"><link rel="prefetch" href="/assets/js/16.8b331bf5.js"><link rel="prefetch" href="/assets/js/17.b921ac5f.js"><link rel="prefetch" href="/assets/js/18.181e4a93.js"><link rel="prefetch" href="/assets/js/19.b0c50d6b.js"><link rel="prefetch" href="/assets/js/20.dd967b34.js"><link rel="prefetch" href="/assets/js/21.8db32eba.js"><link rel="prefetch" href="/assets/js/22.18f2031a.js"><link rel="prefetch" href="/assets/js/23.00344e73.js"><link rel="prefetch" href="/assets/js/24.71e44124.js"><link rel="prefetch" href="/assets/js/25.3d997b74.js"><link rel="prefetch" href="/assets/js/26.21aa209e.js"><link rel="prefetch" href="/assets/js/27.f319465f.js"><link rel="prefetch" href="/assets/js/28.76bf506d.js"><link rel="prefetch" href="/assets/js/29.95988520.js"><link rel="prefetch" href="/assets/js/3.03715bf7.js"><link rel="prefetch" href="/assets/js/4.f1d818cf.js"><link rel="prefetch" href="/assets/js/5.c22c22f4.js"><link rel="prefetch" href="/assets/js/6.2dfdaecd.js"><link rel="prefetch" href="/assets/js/7.4468e73c.js"><link rel="prefetch" href="/assets/js/9.f217ae35.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c35b8298.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">leetcode 精选</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/problems/" class="nav-link">
+  全部题目
+</a></div><div class="nav-item"><a href="/weekly_contest/" class="nav-link">
+  周赛题目
+</a></div><div class="nav-item"><a href="/biweekly_contest/" class="nav-link router-link-active">
+  双周赛题目
+</a></div><div class="nav-item"><a href="https://blog.showthink.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/liangwt/leetcode" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第 20 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5323.sort_integers_by_the_number_of_1_bits.html" class="sidebar-link">5323. 根据数字二进制下 1 的数目排序</a></li><li><a href="/biweekly_contest/1357.apply_discount_every_n_orders.html" class="sidebar-link">1357. 每隔 n 个顾客打折</a></li><li><a href="/biweekly_contest/5325.number_of_substrings_containing_all_three_characters.html" class="active sidebar-link">5325. 包含所有三种字符的子字符串数目</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第 21 场双周赛</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts.html" class="sidebar-link">5337. 每个元音包含偶数次的最长子字符串</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_5325-包含所有三种字符的子字符串数目"><a href="#_5325-包含所有三种字符的子字符串数目" class="header-anchor">#</a> 5325. 包含所有三种字符的子字符串数目</h2> <p>给你一个字符串 s ，它只包含三种字符 a, b 和 c 。</p> <p>请你返回 a，b 和 c 都 至少 出现过一次的子字符串数目。</p> <div class="custom-block tip"><p class="custom-block-title">示例 1：</p> <p>输入：s = &quot;abcabc&quot;
+输出：10
+解释：包含 a，b 和 c 各至少一次的子字符串为 &quot;abc&quot;, &quot;abca&quot;, &quot;abcab&quot;, &quot;abcabc&quot;, &quot;bca&quot;, &quot;bcab&quot;, &quot;bcabc&quot;, &quot;cab&quot;, &quot;cabc&quot; 和 &quot;abc&quot; (相同字符串算多次)</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 2：</p> <p>输入：s = &quot;aaacb&quot;
+输出：3
+解释：包含 a，b 和 c 各至少一次的子字符串为 &quot;aaacb&quot;, &quot;aacb&quot; 和 &quot;acb&quot;</p></div> <div class="custom-block tip"><p class="custom-block-title">示例 3：</p> <p>输入：s = &quot;abc&quot;
+输出：1</p></div> <div class="custom-block warning"><p class="custom-block-title">提示：</p> <p>3 &lt;= s.length &lt;= 5 x 10^4 <br>
+s 只包含字符 a，b 和 c</p></div> <h3 id="思路"><a href="#思路" class="header-anchor">#</a> 思路</h3> <p><strong>第一步来思考如何快速计算满足条件的子字符串</strong></p> <p>对于一个字符串 abcabc 来说，当我们已知某字符串xxxx是同时包含 a,b,c三个字符的子字符串，那么从xxxx中最大的位置一直到整个字符串结尾都会满足题意的，即：</p> <div class="language- extra-class"><pre class="language-text"><code>abc =&gt; abca, abcab, abcabc
+bca =&gt; bcab, bcabc
+</code></pre></div><p>对于上面这个结论，反过来也是正确的。当我们已知某字符串xxxx是同时包含 a,b,c三个字符的子字符串，那么从xxxx中最小的位置一直到整个字符串开头都会满足题意的，即：</p> <div class="language- extra-class"><pre class="language-text"><code>abc =&gt; 
+bca =&gt; abca
+cab =&gt; bcab, abcab
+</code></pre></div><p><strong>第二步来思考，如何找到同时包含 a,b,c三个字符的子字符串</strong></p> <p>首先我们假设有个子字符串，它的长度是0，起始和结束位置都是-1，同时使用一个容器来记录这个子字符串中 a, b, c 对应在整个字符的位置，没有的话取值-1</p> <div class="language- extra-class"><pre class="language-text"><code>ra = -1,
+rb = -1,
+rc = -1,
+</code></pre></div><p>我们不断的向右增长这个子字符串，同时更新abc三个字符的最新位置。每往下走一个字符的时候就判断一次当前子字符串，是否满足了同时包含abc，判断的方法很简单，只要看 min(ra, rb, rc)最小值是不是大于 -1 即可。</p> <p>对于满足条件的子字符串，上述的min值就是这个子字符串的最左端，当前遍历到的位置就是这个子字符串的最右端，于是就找到这个了子字符串。</p> <p>利用上面的思路，我们在向后遍历，那么只要往前计算，这个最小值一直到全部字符串的开头，都是满足条件的。</p> <p>对于 abcaaa</p> <p>在遍历到2时 ra = 0, rb = 1, rc = 2。是满足 min(ra, rb, rc) &gt; -1的，此时子字符串是 abc。 <br>
+在遍历到3时 ra = 3, rb = 1, rc = 2。是满足 min(ra, rb, rc) &gt; -1的，此时子字符串是 bca。 <br>
+在遍历到4时 ra = 4, rb = 1, rc = 2。是满足 min(ra, rb, rc) &gt; -1的，此时子字符串是 bcaa。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;assert.h&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">numberOfSubstrings</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> ra <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> rb <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> rc <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// 更新 abc字符的位置</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                ra <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'b'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                rb <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'c'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                rc <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// 获取当前子串的最左端</span>
+            <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token function">min</span><span class="token punctuation">(</span>ra<span class="token punctuation">,</span> rb<span class="token punctuation">)</span><span class="token punctuation">,</span> rc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 不满足条件继续往右增长</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 满足条件，l就是子串的最左端</span>
+            <span class="token comment">// 满足条件的数量就是往前的数量</span>
+            total <span class="token operator">+=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> total<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Solution s<span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">numberOfSubstrings</span><span class="token punctuation">(</span><span class="token string">&quot;abcabc&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">numberOfSubstrings</span><span class="token punctuation">(</span><span class="token string">&quot;aaacb&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">numberOfSubstrings</span><span class="token punctuation">(</span><span class="token string">&quot;abc&quot;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/23/2020, 3:29:54 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/biweekly_contest/1357.apply_discount_every_n_orders.html" class="prev">
+        1357. 每隔 n 个顾客打折
+      </a></span> <span class="next"><a href="/biweekly_contest/5337.find_the_longest_substring_containing_vowels_in_even_counts.html">
+        5337. 每个元音包含偶数次的最长子字符串
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b90e5c3b.js" defer></script><script src="/assets/js/2.fbf82f5d.js" defer></script><script src="/assets/js/8.bfffeeb5.js" defer></script>
+  </body>
+</html>
