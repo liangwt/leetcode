@@ -40,7 +40,7 @@
  */
 
 #include <vector>
-#include <iostream>
+#include <assert.h>
 
 using namespace std;
 
@@ -53,15 +53,17 @@ public:
 
         for (int i = 1; i <= amount; i++)
         {
-            dp[i] = INT_MAX;
+            int mm = INT_MAX;
 
             for (auto coin : coins)
             {
                 if (coin > 0 && i - coin >= 0 && dp[i - coin] < INT_MAX)
                 {
-                    dp[i] = min(dp[i], dp[i - coin] + 1);
+                    mm = min(mm, dp[i - coin] + 1);
                 }
             }
+
+            dp[i] = mm;
         }
 
         return dp[amount] == INT_MAX ? -1 : dp[amount];
@@ -70,11 +72,13 @@ public:
 
 int main()
 {
-    vector<int> conis = {1, 2, 5};
-    int amount = 11;
+    auto s = Solution();
 
-    auto r = Solution().coinChange(conis, amount);
+    vector<int> c1 = {1, 2, 5};
+    assert(s.coinChange(c1, 11) == 3);
 
-    cout << r << endl;
+    vector<int> c2 = {2};
+    assert(s.coinChange(c2, 3) == -1);
+
     return 0;
 }
