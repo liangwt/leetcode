@@ -22,7 +22,6 @@
  */
 
 #include <vector>
-
 #include <assert.h>
 
 using namespace std;
@@ -32,30 +31,22 @@ class Solution
 public:
     int trap(vector<int> &height)
     {
-        vector<int> dp(height.size());
-        int mx = 0, mn = 0, res = 0;
-
-        // 找到每个位置左边的最大值
-        for (int i = 0; i < height.size(); i++)
-        {
-            mx = max(height[i], mx);
-            dp[i] = mx;
+        int len = height.size();
+        vector<int> t(len);
+        int ans = 0, mx = 0;
+        
+        for(int j=len-1;j>=0;--j){
+            mx = max(height[j], mx);
+            t[j] = mx;
         }
 
         mx = 0;
-
-        // 对比每个位置的右边的最大值
-        for (int i = height.size() - 1; i >= 0; i--)
-        {
-            mx = max(mx, height[i]);
-            mn = min(dp[i], mx);
-            if (mn > height[i])
-            {
-                res += mn - height[i];
-            }
+        for(int i=0;i<len;++i){
+            mx = max(height[i], mx);
+            ans +=  (min(t[i], mx) - height[i]);
         }
 
-        return res;
+        return ans;
     }
 };
 
