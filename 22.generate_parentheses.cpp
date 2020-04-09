@@ -1,38 +1,37 @@
-/**
- *
- */
-
-
 #include <vector>
 #include <string>
 
 using namespace std;
 
 class Solution {
+private:
+    vector<string> ans;
 public:
     vector<string> generateParenthesis(int n) {
-        if (n <= 0) {
-            return {};
-        }
-
-        vector<string> result;
-        helper(n, 0, 0, "", result);
-
-        return result;
+        ans = {};
+        string str = "";
+        helper(str, n, n);
+        return ans;
     }
 
-    void helper(int n, int left_num, int right_num, string ss, vector<string> &result) {
-        if (left_num > n || right_num > n || left_num < right_num) {
+    void helper(string &str, int left_num, int right_num){
+        
+        if(left_num < 0 || right_num < 0 || left_num > right_num){
             return;
         }
 
-        if (left_num == n && right_num == n) {
-            result.push_back(ss);
-            return;
+        if(left_num == 0 && right_num == 0){
+            ans.push_back(str);
         }
 
-        helper(n, left_num + 1, right_num, ss + "(", result);
-        helper(n, left_num, right_num + 1, ss + ")", result);
+        str.push_back('(');
+        helper(str, left_num-1, right_num);
+        str.pop_back();
+        
+        str.push_back(')');
+        helper(str, left_num, right_num-1);
+        str.pop_back();
+        
     }
 };
 
@@ -48,7 +47,7 @@ int main() {
     };
     assert(s.generateParenthesis(3) == r1);
 
-    vector<string> r2 = {};
+    vector<string> r2 = {""};
     assert(s.generateParenthesis(0) == r2);
 
     vector<string> r3 = {"()"};
