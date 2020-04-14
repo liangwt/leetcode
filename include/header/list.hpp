@@ -1,8 +1,10 @@
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
-struct ListNode {
+struct ListNode
+{
     int val;
     ListNode *next;
 
@@ -12,12 +14,17 @@ struct ListNode {
 
     static ListNode *deserialize(const vector<int> &arr);
 
-    bool operator==(const ListNode *node) {
+    static bool equal(ListNode *n1, ListNode *n2);
+
+    bool operator==(const ListNode *node)
+    {
         auto n1 = node;
         auto n2 = this;
 
-        while (n1 && n2) {
-            if (n1->val != n2->val) {
+        while (n1 && n2)
+        {
+            if (n1->val != n2->val)
+            {
                 return false;
             }
 
@@ -29,14 +36,17 @@ struct ListNode {
     }
 };
 
-ListNode *ListNode::deserialize(const vector<int> &arr) {
-    if (arr.empty()) {
+ListNode *ListNode::deserialize(const vector<int> &arr)
+{
+    if (arr.empty())
+    {
         return nullptr;
     }
     auto *n = new ListNode(arr[0]);
     ListNode *head = n, *tail = n;
 
-    for (int i = 1; i < arr.size(); ++i) {
+    for (int i = 1; i < arr.size(); ++i)
+    {
         n = new ListNode(arr[i]);
         tail->next = n;
         tail = n;
@@ -45,14 +55,32 @@ ListNode *ListNode::deserialize(const vector<int> &arr) {
     return head;
 }
 
-vector<int> ListNode::serialize(ListNode *head) {
+vector<int> ListNode::serialize(ListNode *head)
+{
     vector<int> result;
     auto n = head;
 
-    while (n) {
+    while (n)
+    {
         result.push_back(n->val);
         n = n->next;
     }
 
     return result;
+}
+
+bool ListNode::equal(ListNode *n1, ListNode *n2)
+{
+    while (n1 && n2)
+    {
+        if (n1->val != n2->val)
+        {
+            return false;
+        }
+
+        n1 = n1->next;
+        n2 = n2->next;
+    }
+
+    return !(n1 || n2);
 }
