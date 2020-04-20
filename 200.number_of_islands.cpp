@@ -33,50 +33,68 @@
 
 using namespace std;
 
-int mx[] = {0, 0, 1, -1};
-int my[] = {1, -1, 0, 0};
+class Solution
+{
+private:
+    vector<pair<int, int>> dir = {
+        {0, 1},
+        {0, -1},
+        {-1, 0},
+        {1, 0},
+    };
+    int len_x;
+    int len_y;
+    vector<vector<bool>> visited;
 
-class Solution {
 public:
-    int numIslands(vector <vector<char>> &grid) {
-        if (grid.empty()) {
+    int numIslands(vector<vector<char>> &grid)
+    {
+        if (grid.empty())
+        {
             return 0;
         }
 
-        auto visited = vector < vector < bool >> (grid.size(), vector<bool>(grid[0].size(), false));
-        int result = 0;
+        len_x = grid[0].size();
+        len_y = grid.size();
+        visited = vector(len_y, vector(len_x, false));
 
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[0].size(); j++) {
-                if (!visited[i][j] && grid[i][j] == '1') {
-                    _helper(i, j, grid, visited);
-                    result++;
+        int ans = 0;
+        for (int i = 0; i < len_y; ++i)
+        {
+            for (int j = 0; j < len_x; ++j)
+            {
+                if (!visited[i][j] && grid[i][j] == '1')
+                {
+                    visited[i][j] = true;
+                    dfs(grid, i, j);
+                    ans++;
                 }
             }
         }
 
-        return result;
+        return ans;
     }
 
-    void _helper(int i, int j, vector <vector<char>> &grid, vector <vector<bool>> &visited) {
-        visited[i][j] = true;
-
-        if (grid[i][j] == '1') {
-            for (int k = 0; k < 4; k++) {
-                int x = mx[k] + i;
-                int y = my[k] + j;
-                if (x < grid.size() && x >= 0 && y < grid[0].size() && y >= 0 && !visited[x][y]) {
-                    _helper(x, y, grid, visited);
-                }
+    void dfs(vector<vector<char>> &grid, int i, int j)
+    {
+        for (const auto &[x, y] : dir)
+        {
+            int xx = j + x;
+            int yy = i + y;
+            if (xx >= 0 && xx < len_x && yy >= 0 && yy < len_y && !visited[yy][xx] && grid[yy][xx] == '1')
+            {
+                visited[yy][xx] = true;
+                dfs(grid, yy, xx);
             }
         }
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
 
-    vector <vector<char>> g1 = {
+    vector<vector<char>> g1 = {
         {'1', '1', '0', '0', '0'},
         {'1', '1', '0', '0', '0'},
         {'0', '0', '1', '0', '0'},
@@ -84,7 +102,7 @@ int main() {
     };
     assert(s.numIslands(g1) == 3);
 
-    vector <vector<char>> g2 = {
+    vector<vector<char>> g2 = {
         {'1', '1', '1', '1', '0'},
         {'1', '1', '0', '1', '0'},
         {'1', '1', '0', '0', '0'},
@@ -92,7 +110,7 @@ int main() {
     };
     assert(s.numIslands(g2) == 1);
 
-    vector <vector<char>> g3 = {
+    vector<vector<char>> g3 = {
         {'0', '0', '0', '0', '0'},
         {'0', '0', '0', '0', '0'},
         {'0', '0', '0', '0', '0'},
@@ -100,7 +118,7 @@ int main() {
     };
     assert(s.numIslands(g3) == 0);
 
-    vector <vector<char>> g4 = {};
+    vector<vector<char>> g4 = {};
     assert(s.numIslands(g4) == 0);
 
     return 0;
