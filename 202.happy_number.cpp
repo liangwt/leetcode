@@ -16,14 +16,13 @@
 
 /**
  * 对于不是happy number的数字，最后sum一定会是一个循环
- * 所以使用一个visted的集合来记录已经出现过的sum
+ * 所以使用一个cache的集合来记录已经出现过的sum
  * 
- * 在不断求解每一位的平方和的同时记录到visited集合中
+ * 在不断求解每一位的平方和的同时记录到cache集合中
  * 如果某一次的平方和已经在集合中了，则说明此数不是happy number
  */
 
 #include <assert.h>
-#include <iostream>
 #include <unordered_set>
 
 using namespace std;
@@ -33,36 +32,29 @@ class Solution
 public:
     bool isHappy(int n)
     {
-        int sum = n, i = 0;
-        unordered_set<int> visted;
+        unordered_set<int> cache;
 
-        while (sum)
+        while (n != 1)
         {
-            if (visted.count(sum) >= 1)
+            int a, t = 0, i = n;
+
+            while (n)
+            {
+                a = n % 10;
+                t += (a * a);
+                n = n / 10;
+            }
+
+            if (cache.find(t) != cache.end())
             {
                 return false;
             }
 
-            if (sum == 1)
-            {
-                return true;
-            }
-            else
-            {
-                visted.insert(sum);
-                n = sum;
-                sum = 0;
-            }
-
-            while (n)
-            {
-                i = n % 10;
-                sum += i * i;
-                n /= 10;
-            }
+            cache.insert(i);
+            n = t;
         }
 
-        return false;
+        return true;
     }
 };
 
@@ -70,9 +62,10 @@ int main()
 {
     Solution s;
 
-    // assert(s.isHappy(19) == true);
-    // assert(s.isHappy(1111111) == true);
+    assert(s.isHappy(19) == true);
+    assert(s.isHappy(1111111) == true);
     assert(s.isHappy(20) == false);
+    assert(s.isHappy(0) == false);
 
     return 0;
 }
