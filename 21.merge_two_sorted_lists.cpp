@@ -11,61 +11,65 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
-        if (!l1 && !l2) {
-            return nullptr;
-        }
+    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+    {
+        ListNode *cur = nullptr, *head = nullptr;
+        while (l1 || l2)
+        {
+            ListNode *select;
 
-        ListNode *head, *tail;
-
-        if (l1 && l2) {
-            if (l1->val < l2->val) {
-                head = l1;
-                tail = l1;
-                l1 = l1->next;
-            } else {
-                head = l2;
-                tail = l2;
-                l2 = l2->next;
+            if (l1 && l2)
+            {
+                if (l1->val <= l2->val)
+                {
+                    select = l1;
+                    l1 = l1->next;
+                }
+                else
+                {
+                    select = l2;
+                    l2 = l2->next;
+                }
             }
-        } else if (l1) {
-            head = l1;
-            tail = l1;
-            l1 = l1->next;
-        } else {
-            head = l2;
-            tail = l2;
-            l2 = l2->next;
-        }
-
-        while (l1 && l2) {
-            if (l1->val < l2->val) {
-                tail->next = l1;
-                tail = l1;
-                l1 = l1->next;
-
-            } else {
-                tail->next = l2;
-                tail = l2;
-                l2 = l2->next;
+            else
+            {
+                if (!l1 && l2)
+                {
+                    select = l2;
+                    l2 = l2->next;
+                }
+                else
+                {
+                    select = l1;
+                    l1 = l1->next;
+                }
             }
-        }
 
-        if(l1){
-            tail->next = l1;
-        }
+            if (!head)
+            {
+                head = select;
+            }
 
-        if(l2){
-            tail->next = l2;
+            if (!cur)
+            {
+                cur = select;
+            }
+            else
+            {
+                cur->next = select;
+                cur = select;
+            }
         }
 
         return head;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
 
     vector<int> a1 = {1, 2, 4};
@@ -75,7 +79,6 @@ int main() {
     auto l2 = ListNode::deserialize(a2);
 
     assert(ListNode::serialize(s.mergeTwoLists(l1, l2)) == vector<int>({1, 1, 2, 3, 4, 4}));
-
 
     return 0;
 }
