@@ -38,30 +38,39 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> _table;
-        int result = 0, left = 0, temp = 0;
+    int lengthOfLongestSubstring(string s)
+    {
+        unordered_map<char, int> table;
+        unordered_map<char, int>::const_iterator idx;
 
-        for (int i = 0; i < s.size(); i++) {
-            auto idx = _table.find(s[i]);
-            if (idx == _table.end()) {
-                _table[s[i]] = i;
-                temp++;
-            } else {
-                left = max(idx->second + 1, left);
-                result = max(result, temp);
-                temp = i - left + 1;
-                _table[s[i]] = i;
+        int ans = 0, left = 0, right = 0, len = s.size();
+        char ss;
+
+        while (right < len)
+        {
+            ss = s[right];
+            idx = table.find(ss);
+
+            if (idx != table.end())
+            {
+                left = max(left, idx->second + 1);
             }
+
+            ans = max(ans, right - left + 1);
+
+            table[ss] = right;
+            right++;
         }
 
-        return max(result, temp);
+        return ans;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
 
     assert(s.lengthOfLongestSubstring("abcabcbb") == 3);
