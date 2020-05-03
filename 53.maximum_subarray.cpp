@@ -20,29 +20,45 @@
  *
  * 最终结果
  * result = max(f(0), f(1), ..., f(n))
+ * 
+ * @update: 2020-05-03
+ * 不用动态规划的思想：
+ * 对于某一个位置i，如果在之前的子数组和比0小，说明只会##拖累##当前值的大小，直接抛弃之前的和重新算
  */
 
 #include <vector>
 
 using namespace std;
 
-class Solution{
+class Solution
+{
 public:
-    int maxSubArray(vector<int>& nums) {
-        int mx = nums[0], pre = nums[0];
+    int maxSubArray(vector<int> &nums)
+    {
+        int t = INT_MIN;
+        int ans = INT_MIN;
 
-        for(int i = 1; i < nums.size(); i++){
-            pre = max(pre + nums[i], nums[i]);
-            mx = max(mx, pre);
+        for (const auto &num : nums)
+        {
+            if (t <= 0)
+            {
+                t = num;
+            }
+            else
+            {
+                t += num;
+            }
+            ans = max(ans, t);
         }
 
-        return mx;
+        return ans;
     }
 };
 
-int main() {
+int main()
+{
     Solution
-    s;
+        s;
 
     vector<int> n1 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     assert(s.maxSubArray(n1) == 6);
