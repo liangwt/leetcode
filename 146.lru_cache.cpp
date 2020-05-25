@@ -53,21 +53,21 @@ using namespace std;
 class LRUCache {
 private:
     int capacity;
-    unordered_map<int, list<pair<int, int>>::iterator> _table;
-    list<pair<int, int>> _lst;
+    unordered_map<int, list<pair<int, int>>::iterator> M;
+    list<pair<int, int>> L;
 
     inline void refresh(list<pair<int, int>>::iterator &idx) {
         // transfers only the element pointed by i from x into the container.
-        if (idx != _lst.begin()) {
-            _lst.splice(_lst.begin(), _lst, idx);
+        if (idx != L.begin()) {
+            L.splice(L.begin(), L, idx);
         }
     }
 
     inline void evicts() {
-        if (_lst.size() >= capacity) {
-            auto r = _lst.back();
-            _table.erase(r.first);
-            _lst.pop_back();
+        if (L.size() >= capacity) {
+            auto r = L.back();
+            M.erase(r.first);
+            L.pop_back();
         }
     }
 
@@ -77,8 +77,8 @@ public:
     }
 
     int get(int key) {
-        auto idx = _table.find(key);
-        if (idx == _table.end()) {
+        auto idx = M.find(key);
+        if (idx == M.end()) {
             return -1;
         }
 
@@ -88,14 +88,14 @@ public:
     }
 
     void put(int key, int value) {
-        auto idx = _table.find(key);
+        auto idx = M.find(key);
         // 不存在则新增
-        if (idx == _table.end()) {
+        if (idx == M.end()) {
             // 超过容量限制则移除旧元素
             evicts();
 
-            _lst.push_front({key, value});
-            _table[key] = _lst.begin();
+            L.push_front({key, value});
+            M[key] = L.begin();
             return;
         }
 
