@@ -40,26 +40,38 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int rob(vector<int> &nums) {
-        vector<int> dp(nums.size(), 0);
-
-        for (int i = 0; i < nums.size(); i++) {
-            if (i == 0) {
-                dp[0] = nums[0];
-            } else if (i == 1) {
-                dp[1] = max(dp[0], nums[1]);
-            } else {
-                dp[i] = max(dp[i - 2] + nums[i], dp[i - 1]);
-            }
+    int rob(vector<int> &nums)
+    {
+        if (nums.empty())
+        {
+            return 0;
         }
 
-        return dp.empty() ? 0 : dp.back();
+        if (nums.size() == 1)
+        {
+            return nums[0];
+        }
+
+        int len = nums.size();
+
+        vector<int> dp = vector<int>(len, 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[0], nums[1]);
+
+        for (int i = 2; i < len; i++)
+        {
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+
+        return dp.back();
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
 
     vector<int> n1 = {1, 2, 3, 1};
