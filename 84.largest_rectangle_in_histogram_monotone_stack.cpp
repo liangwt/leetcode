@@ -42,29 +42,41 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int largestRectangleArea(vector<int> &heights) {
+    int largestRectangleArea(vector<int> &heights)
+    {
         heights.push_back(0);
-        int i = 0, size = heights.size();
-        int ret = 0;
-        stack<int> sk;
 
-        while (i < size) {
-            if (sk.empty() || heights[sk.top()] <= heights[i]) {
-                sk.push(i++);
-            } else {
-                int t = sk.top();
+        stack<pair<int, int>> sk;
+        sk.push({-1, 0});
+
+        int ans = 0;
+
+        for (int i = 0; i < heights.size(); i++)
+        {
+            int height = heights[i];
+
+            while (height < sk.top().second)
+            {
+                auto const &[idx1, h1] = sk.top();
                 sk.pop();
-                ret = max(ret, heights[t] * (sk.empty() ? i : (i - sk.top() - 1)));
+                auto const &[idx2, h2] = sk.top();
+
+                int area = (i - idx2 - 1) * h1;
+                ans = max(ans, area);
             }
+
+            sk.push({i, height});
         }
 
-        return ret;
+        return ans;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
     vector<int> h1 = {2, 1, 5, 6, 2, 3};
     assert(s.largestRectangleArea(h1) == 10);
