@@ -31,33 +31,32 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<int> productExceptSelf(vector<int> &nums) {
-        int len = (int) nums.size();
+    vector<int> productExceptSelf(vector<int> &nums)
+    {
+        int len = nums.size();
+        vector<int> ans(len, 1);
 
-        vector<int> front(len, 1), back(len, 1), result(len);
-
-        // 从前遍历
-        for (int i = 0; i < len - 1; i++) {
-            front[i + 1] = front[i] * nums[i];
+        for (int i = 0; i < len - 1; i++)
+        {
+            ans[i + 1] = nums[i] * ans[i];
         }
 
-        // 从后遍历
-        for (int i = len - 1; i > 0; i--) {
-            back[i - 1] = back[i] * nums[i];
+        int t = 1;
+        for (int i = len - 2; i >= 0; i--)
+        {
+            t = t * nums[i + 1];
+            ans[i] = ans[i] * t;
         }
 
-        // 计算结果
-        for (int i = 0; i < len; i++) {
-            result[i] = front[i] * back[i];
-        }
-
-        return result;
+        return ans;
     }
 };
 
-int main() {
+int main()
+{
     Solution s;
 
     vector<int> n1 = {1, 2, 3, 4};
