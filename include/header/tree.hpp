@@ -4,7 +4,8 @@
 
 using namespace std;
 
-struct TreeNode {
+struct TreeNode
+{
     int val;
     TreeNode *left;
     TreeNode *right;
@@ -15,14 +16,19 @@ struct TreeNode {
 
     static TreeNode *deserialize(const vector<int> &arr);
 
-    ~TreeNode() {
+    static bool equal(TreeNode *a, TreeNode *b);
+
+    ~TreeNode()
+    {
         delete left;
         delete right;
     }
 };
 
-vector<int> TreeNode::serialize(TreeNode *root) {
-    if (root == nullptr) {
+vector<int> TreeNode::serialize(TreeNode *root)
+{
+    if (root == nullptr)
+    {
         return {};
     }
 
@@ -33,15 +39,19 @@ vector<int> TreeNode::serialize(TreeNode *root) {
 
     TreeNode *t = nullptr;
 
-    while (!q.empty()) {
+    while (!q.empty())
+    {
         t = q.front();
         q.pop();
 
-        if (t) {
+        if (t)
+        {
             q.push(t->left);
             q.push(t->right);
             result.push_back(t->val);
-        } else {
+        }
+        else
+        {
             result.push_back(INT_MAX);
         }
     }
@@ -49,23 +59,29 @@ vector<int> TreeNode::serialize(TreeNode *root) {
     return result;
 }
 
-TreeNode *TreeNode::deserialize(const vector<int> &arr) {
+TreeNode *TreeNode::deserialize(const vector<int> &arr)
+{
     queue<TreeNode *> q;
     int i = 1;
     TreeNode *root;
 
-    if (!arr.empty() && arr[0] != INT_MAX) {
+    if (!arr.empty() && arr[0] != INT_MAX)
+    {
         root = new TreeNode(arr[0]);
         q.push(root);
-    } else {
+    }
+    else
+    {
         root = nullptr;
     }
 
-    while (!q.empty()) {
+    while (!q.empty())
+    {
         TreeNode *p = q.front();
         q.pop();
 
-        if (i < arr.size() && arr[i] != INT_MAX) {
+        if (i < arr.size() && arr[i] != INT_MAX)
+        {
             auto *n1 = new TreeNode(arr[i]);
             p->left = n1;
             q.push(n1);
@@ -73,7 +89,8 @@ TreeNode *TreeNode::deserialize(const vector<int> &arr) {
 
         i += 1;
 
-        if (i < arr.size() && arr[i] != INT_MAX) {
+        if (i < arr.size() && arr[i] != INT_MAX)
+        {
             auto *n2 = new TreeNode(arr[i]);
             p->right = n2;
             q.push(n2);
@@ -82,4 +99,20 @@ TreeNode *TreeNode::deserialize(const vector<int> &arr) {
     }
 
     return root;
+}
+
+bool TreeNode::equal(TreeNode *a, TreeNode *b)
+{
+    if (a == nullptr && b == nullptr)
+        return true;
+
+    if (a != NULL && b != NULL)
+    {
+        return (
+            a->val == b->val &&
+            equal(a->left, b->left) &&
+            equal(a->right, b->right));
+    }
+
+    return false;
 }
