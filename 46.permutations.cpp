@@ -9,28 +9,37 @@ class Solution
 public:
     vector<vector<int>> permute(vector<int> &nums)
     {
-        unordered_set<int> nums_set(nums.begin(), nums.end());
+        vector<vector<int>> ans;
         vector<int> temp;
-        vector<vector<int>> result;
-        _helper(nums_set, temp, result);
-        return result;
+        vector<int> visited;
+
+        visited.resize(nums.size());
+        helper(nums, ans, temp, visited);
+
+        return ans;
     }
 
-    void _helper(unordered_set<int> nums_set, vector<int> &temp, vector<vector<int>> &result)
+    void helper(vector<int> &nums, vector<vector<int>> &ans, vector<int> &temp, vector<int> visited)
     {
-        if (nums_set.empty())
+        if (temp.size() == nums.size())
         {
-            result.push_back(temp);
+            ans.emplace_back(temp);
             return;
         }
 
-        for (const auto &num : nums_set)
+        for (int i = 0; i < nums.size(); i++)
         {
-            temp.push_back(num);
+            if (visited[i])
+            {
+                continue;
+            }
 
-            unordered_set<int> n_set = nums_set;
-            n_set.erase(num);
-            _helper(n_set, temp, result);
+            visited[i] = 1;
+            temp.emplace_back(nums[i]);
+
+            helper(nums, ans, temp, visited);
+
+            visited[i] = 0;
             temp.pop_back();
         }
 
