@@ -21,21 +21,20 @@
  */
 
 /**
- * 对于nums中的数都有选或者不选两种选择，所以从第一个数字到最后一个构成了一棵树
+ * 回溯法
+ * 从第一个数字到最后一个构成了一棵树
  *
- *                        []
- *                   /         \
- *                  /           \
- *                 /             \
- *              1                []
- *           /    \           /     \
- *          /      \         /       \
- *       [2]       []      [2]      []
- *      /   \     /  \    /   \     / \
- *   [3]    []  [3]  []  [3]  []  [3] []
+ *                         []
+ *                   /      |    \
+ *                 /        |     \
+ *               /          |      \
+ *             [1]         [2]    [3]
+ *           /    \         /     
+ *          /      \       /       
+ *       [1,2]    [1,3] [2,3]      
+ *      /                
+ *   [1,2,3]              
  *
- *
- *  深度递归，跟节点到叶子节点到路径就构成了最终结果
  */
 
 #include <unordered_set>
@@ -50,26 +49,26 @@ class Solution
 public:
     vector<vector<int>> subsets(vector<int> &nums)
     {
+        vector<int> temp;
         vector<vector<int>> ans;
-        vector<int> temp = {};
-        helper(nums, 0, temp, ans);
+
+        helper(nums, -1, temp, ans);
+
         return ans;
     }
 
     void helper(vector<int> &nums, int idx, vector<int> &temp, vector<vector<int>> &ans)
     {
-        if (idx >= nums.size())
-        {
-            ans.push_back(temp);
+        ans.emplace_back(temp);
 
-            return;
+        for (int i = idx + 1; i < nums.size(); i++)
+        {
+            temp.emplace_back(nums[i]);
+            helper(nums, i, temp, ans);
+            temp.pop_back();
         }
 
-        helper(nums, idx + 1, temp, ans);
-
-        temp.push_back(nums[idx]);
-        helper(nums, idx + 1, temp, ans);
-        temp.pop_back();
+        return;
     }
 };
 

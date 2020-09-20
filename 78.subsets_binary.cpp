@@ -40,18 +40,25 @@
 #include <unordered_set>
 #include <vector>
 
+#include "include/header/utils.hpp"
+
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<vector<int>> subsets(vector<int> &nums) {
+    vector<vector<int>> subsets(vector<int> &nums)
+    {
         long len = nums.size();
         vector<vector<int>> result;
 
-        for (long i = 0; i < pow(2, len); i++) {
+        for (long i = 0; i < pow(2, len); i++)
+        {
             vector<int> t = {};
-            for (long j = 0; j < len; j++) {
-                if (i & (1 << j)) {
+            for (long j = 0; j < len; j++)
+            {
+                if (i & (1 << j))
+                {
                     t.push_back(nums[j]);
                 }
             }
@@ -63,22 +70,8 @@ public:
     }
 };
 
-bool equal(vector<vector<int>> r1, vector<vector<int>> r2) {
-    auto f = [](vector<int> r) {
-        sort(r.begin(), r.end());
-        return r;
-    };
-
-    transform(r1.begin(), r1.end(), r1.begin(), f);
-    transform(r2.begin(), r2.end(), r2.begin(), f);
-
-    sort(r1.begin(), r1.end());
-    sort(r2.begin(), r2.end());
-
-    return r1 == r2;
-}
-
-int main() {
+int main()
+{
     Solution s;
 
     vector<int> n1 = {1, 3, 2};
@@ -93,7 +86,7 @@ int main() {
         {1, 2},
     };
 
-    assert(equal(s.subsets(n1), r1));
+    assert(vector_equal(s.subsets(n1), r1));
 
     vector<int> n2 = {2, 4, 3, 5};
     vector<vector<int>> r2 = {
@@ -113,7 +106,7 @@ int main() {
         {3, 4, 5},
         {2, 3, 4, 5},
     };
-    assert(equal(s.subsets(n1), r1));
+    assert(vector_equal(s.subsets(n1), r1));
 
     return 0;
 }
